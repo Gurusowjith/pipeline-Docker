@@ -17,7 +17,7 @@ node{
      sh 'docker push shivastunts/vedic-service-app:1.0.0'
    }
    stage('Run Container on Dev Server'){
-     def dockerRun = 'docker run -p 8080:8080 -d --name vedic-service-app shivastunts/vedic-service-app:1.0.0'
+     def dockerRun = 'docker run -p 8080:8080 -d --name vedic-service-app shivastunts/vedic-service-app'
      sshagent(['ssh-key']) {
        sh "ssh -o StrictHostKeyChecking=no ubuntu@13.127.72.8 ${dockerRun}"
      }
