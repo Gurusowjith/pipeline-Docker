@@ -11,8 +11,8 @@ node{
      sh 'docker build -t shivastunts/vedic-service-app:1.0.0 .'
    }
    stage('Push Docker Image'){
-     withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-pwd')]) {
-        sh "docker login -u shivastunts -p ${docker-pwd}"
+     withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+        sh "docker login -u shivastunts -p ${dockerhub}"
      }
      sh 'docker push shivastunts/vedic-service-app:1.0.0'
    }
