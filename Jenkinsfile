@@ -3,7 +3,7 @@ node{
        git credentialsId: 'git-creds', url: 'https://github.com/shiva0327/pipeline.git'
    }
    stage('Mvn Package'){
-     def mvnHome = tool name: 'maven-3', type: 'maven'
+     def mvnHome = tool name: 'maven3', type: 'maven'
      def mvnCMD = "${mvnHome}/bin/mvn"
      sh "${mvnCMD} clean package"
    }
